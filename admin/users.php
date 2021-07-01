@@ -11,8 +11,16 @@
               <div class="col-md-12">
                 <?php
 include "config.php";
+$limit = 3;
 
-$sql = "SELECT * FROM user ORDER BY user_id DESC";
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
+$offset = ($page - 1) * $limit;
+
+$sql = "SELECT * FROM user ORDER BY user_id DESC LIMIT {$offset},{$limit}";
 $result = mysqli_query($conn, $sql) or die("Query Failed. ");
 if (mysqli_num_rows($result) > 0) {
     ?>
@@ -47,12 +55,29 @@ if ($row['role'] == 1) {
                           <?php }?>
                       </tbody>
                   </table>
-                  <?php }?>
-                  <ul class='pagination admin-pagination'>
-                      <li class="active"><a>1</a></li>
-                      <li><a>2</a></li>
-                      <li><a>3</a></li>
-                  </ul>
+                  <?php
+}
+
+$sql1 = "SELECT * FROM user";
+$result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
+
+if (mysqli_num_rows($result1) > 0) {
+    $total_records = mysqli_num_rows($result1);
+
+    $total_page = ceil($total_records / $limit);
+
+    echo '<ul class="pagination admin-pagination">';
+    for ($i = 1; $i <= $total_page; $i++) {
+        if ($i == $page) {
+            $active = "active";
+        } else {
+            $active = "";
+        }
+        echo '<li class="' . $active . '"><a href="users.php?page=' . $i . '">' . $i . '</a></li>';
+    }
+    echo '</ul>';
+}
+?>
               </div>
           </div>
       </div>
