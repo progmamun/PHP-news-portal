@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "header.php";?>
   <div id="admin-content">
       <div class="container">
           <div class="row">
@@ -7,7 +7,7 @@
               </div>
               <div class="col-md-offset-3 col-md-6">
                   <!-- Form Start -->
-                  <form  action="" method ="POST" autocomplete="off">
+                  <form  action="<?php $_SERVER['PHP_SELF'];?>" method ="POST" autocomplete="off">
                       <div class="form-group">
                           <label>First Name</label>
                           <input type="text" name="fname" class="form-control" placeholder="First Name" required>
@@ -39,4 +39,4 @@
            </div>
        </div>
    </div>
-<?php include "footer.php"; ?>
+<?php include "footer.php";?>
