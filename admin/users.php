@@ -13,7 +13,7 @@
 include "config.php";
 
 $sql = "SELECT * FROM user ORDER BY user_id DESC";
-$result = mysqli_query($conn, $sql1) or die("Query Failed. ");
+$result = mysqli_query($conn, $sql) or die("Query Failed. ");
 if (mysqli_num_rows($result) > 0) {
     ?>
 
@@ -57,4 +57,4 @@ if ($row['role'] == 1) {
           </div>
       </div>
   </div>
-<?php include "header.php";?>
+<?php include "footer.php";?>

@@ -13,7 +13,7 @@ if (isset($_POST['save'])) {
     $result = mysqli_query($conn, $sql) or die("Query Failed.");
 
     if(mysqli_num_rows($result) > 0){
-        echo "<p style='color:red;text-align:center;margin: 10px 0;'>UserName Already Exit</p>"
+        echo "<p style='color:red;text-align:center;margin: 10px 0;'>UserName Already Exit.</p>";
     }else{
         $sql1 = "INSERT INTO user (first_name,last_name, username, password, role) VALUES ('{$fname}','{$user}','{$password}','{$role}')";
 
