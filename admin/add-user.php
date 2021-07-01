@@ -1,4 +1,15 @@
-<?php include "header.php";?>
+<?php include "header.php";
+
+if (isset($_POST['save'])) {
+    include "config.php";
+
+    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+    $user = mysqli_real_escape_string($conn, $_POST['user']);
+    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+    $role = mysqli_real_escape_string($conn, $_POST['role']);
+}
+?>
   <div id="admin-content">
       <div class="container">
           <div class="row">
