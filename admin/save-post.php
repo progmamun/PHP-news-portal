@@ -5,10 +5,10 @@ if (isset($_FILES['fileToUpload'])) {
 
     $file_name = $_FILES['fileToUpload']['name'];
     $file_size = $_FILES['fileToUpload']['size'];
-    $file_tmp = $_FILES['fileToUpload']['tmp'];
+    $file_tmp = $_FILES['fileToUpload']['tmp_name'];
     $file_type = $_FILES['fileToUpload']['type'];
-    $file_ext = strtolower(end(explode('.', $file_name)));
-    $extensions - array("jpeg", "jpg", "png");
+    $file_ext = end(explode('.', $file_name));
+    $extensions = array("jpeg", "jpg", "png");
 
     if (in_array($file_ext, $extensions) === false) {
         $errors[] = "This extension file not allowed, Please choose a JPG or PNG file.";
@@ -38,7 +38,7 @@ $sql = "INSERT INTO post(title, description,category,post_date,author,post_img)
 $sql .= "UPDATE category SET post = post + 1 WHERE category_id = {$category}";
 
 if (mysqli_multi_query($conn, $sql)) {
-    header("Location:{$hostname}/admin/post.php");
+    header("Location: {$hostname}/admin/post.php");
 } else {
     echo "<div class='alert alert-danger'>Query Failed.</div>";
 }
