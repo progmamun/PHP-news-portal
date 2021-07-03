@@ -1,11 +1,10 @@
-<?php 
+<?php
 include "config.php";
 session_start();
 
-if(isset($_SESSION["username"])) > 0{
+if (isset($_SESSION["username"])) {
     header("Location: {$hostname}/admin/post.php");
 }
-
 ?>
 <!doctype html>
 <html>
