@@ -1,8 +1,8 @@
-<?php 
+<?php
 include "config.php";
 session_start();
 
-if(!isset($_SESSION["username"])) > 0{
+if (!isset($_SESSION["username"])) {
     header("Location: {$hostname}/admin/");
 }
 
@@ -52,18 +52,18 @@ if(!isset($_SESSION["username"])) > 0{
                             <li>
                                 <a href="post.php">Post</a>
                             </li>
-                            <?php 
-                            if($_SESSION["user_role"] == '1'){
-                            ?>
+                            <?php
+if ($_SESSION["user_role"] == '1') {
+    ?>
                             <li>
                                 <a href="category.php">Category</a>
                             </li>
                             <li>
                                 <a href="users.php">Users</a>
                             </li>
-                            <?php 
-                            } 
-                         ?>
+                            <?php
+}
+?>
                         </ul>
                     </div>
                 </div>
