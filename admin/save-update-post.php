@@ -6,10 +6,10 @@ if (empty($_FILES['new-image']['name'])) {
 } else {
     $errors = array();
 
-    $file_name = $_FILES['fileToUpload']['name'];
-    $file_size = $_FILES['fileToUpload']['size'];
-    $file_tmp = $_FILES['fileToUpload']['tmp_name'];
-    $file_type = $_FILES['fileToUpload']['type'];
+    $file_name = $_FILES['new-image']['name'];
+    $file_size = $_FILES['new-image']['size'];
+    $file_tmp = $_FILES['new-image']['tmp_name'];
+    $file_type = $_FILES['new-image']['type'];
     $file_ext = end(explode('.', $file_name));
     $extensions = array("jpeg", "jpg", "png");
 
@@ -29,5 +29,13 @@ if (empty($_FILES['new-image']['name'])) {
     }
 }
 
-$sql = "UPDATE post SET title='{$_POST["post_title"]}',description='{$_POST["postdesc"]}',category='{$_POST["category"]}',post_img='{$file_name}'
+$sql = "UPDATE post SET title='{$_POST["post_title"]}',description='{$_POST["postdesc"]}',category={$_POST["category"]},post_img='{$file_name}'
 WHERE post_id={$_POST["post_id"]}";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    header("Localhost: {$hostname}/admin/post.php");
+} else {
+    echo "Query Failed";
+}
