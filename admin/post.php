@@ -11,6 +11,7 @@
               <div class="col-md-12">
               <?php
 include "config.php";
+/* Calculate offset code */
 $limit = 3;
 
 if (isset($_GET['page'])) {
