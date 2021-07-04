@@ -55,13 +55,13 @@ if (mysqli_num_rows($result) > 0) {
                                     </div>
                                 </div>
                             </div>
+                            </div>
                             <?php
 }
 } else {
     echo "<h2>No Record Found.</h2>";
 }
 ?>
-                        </div>
                         <?php
 //show pagination
 $sql1 = "SELECT * FROM post";
