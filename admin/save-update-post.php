@@ -20,9 +20,6 @@ if (empty($_FILES['new-image']['name'])) {
     if ($file_size > 2097152) {
         $errors[] = "File size must be 2mb or lower.";
     }
-    if ($file_size > 2097152) {
-        $errors[] = "File size must be 2mb or lower.";
-    }
     $new_name = time() . "-" . basename($file_name);
     $target = "upload/" . $new_name;
 

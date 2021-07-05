@@ -48,10 +48,11 @@ if (mysqli_num_rows($result) > 0) {
                       </thead>
                       <tbody>
                       <?php
-while ($row = mysqli_fetch_assoc($result)) {
+$serial = $offset + 1;
+    while ($row = mysqli_fetch_assoc($result)) {
         ?>
                           <tr>
-                              <td class='id'><?php echo $row['post_id']; ?></td>
+                              <td class='id'><?php echo $serial; ?></td>
                               <td><?php echo $row['post_id']; ?></td>
                               <td><?php echo $row['category_name']; ?></td>
                               <td><?php echo $row['post_date']; ?></td>
@@ -60,7 +61,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                               <td class='delete'><a href='delete-post.php?id=<?php echo $row['post_id']; ?>&catid=<?php echo $row['category']; ?>'><i class='fa fa-trash-o'></i></a></td>
                           </tr>
 
-                          <?php }?>
+                          <?php
+$serial++;
+    }?>
                       </tbody>
                   </table>
                   <?php
