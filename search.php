@@ -26,7 +26,7 @@ if (isset($_GET['search'])) {
                     category.category_name,user.username,post.category,post.post_img FROM post
                     LEFT JOIN category ON post.category = category.category_id
                     LEFT JOIN user ON post.author = user.user_id
-                    WHERE post.title LIKE '%{$search_term}%'
+                    WHERE post.title LIKE '%{$search_term}%' OR post.description LIKE '%{$search_term}%'
                     ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
 
     $result = mysqli_query($conn, $sql) or die("Query Failed.");
