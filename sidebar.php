@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
                 <h5><a href="single.php?id=<?php echo $row['post_id']; ?>"><?php echo $row['title']; ?></a></h5>
                 <span>
                     <i class="fa fa-tags" aria-hidden="true"></i>
-                    <a href='category.php?id=<?php echo $row['category']; ?>'><?php echo $row['category_name']; ?></a>
+                    <a href="category.php?id=<?php echo $row['category']; ?>"><?php echo $row['category_name']; ?></a>
                 </span>
                 <span>
                     <i class="fa fa-calendar" aria-hidden="true"></i>
