@@ -60,6 +60,9 @@ if ($_SESSION["user_role"] == '1') {
                             <li>
                                 <a href="users.php">Users</a>
                             </li>
+                            <li>
+                                <a href="settings.php">Settings</a>
+                            </li>
                             <?php
 }
 ?>
