@@ -8,7 +8,7 @@
                   <?php
 include "config.php";
 if (isset($_GET['search'])) {
-    $search_term = $_GET['search'];
+    $search_term = mysqli_real_escape_string($conn, $_GET['search']);
     ?>
                   <h2 class="page-heading">Search : <?php echo $search_term; ?></h2>
                   <?php
