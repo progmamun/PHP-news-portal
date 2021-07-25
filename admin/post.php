@@ -67,12 +67,22 @@ $serial++;
                       </tbody>
                   </table>
                   <?php
+} else {
+    echo "<h3>No Results Found.</h3>";
 }
-//show pagination
-$sql1 = "SELECT * FROM post";
+// show pagination
+if ($_SESSION["user_role"] == '1') {
+    /* select query of post table for admin user */
+    $sql1 = "SELECT * FROM post";
+} elseif ($_SESSION["user_role"] == '0') {
+    /* select query of post table for normal user */
+    $sql1 = "SELECT * FROM post
+                  WHERE author = {$_SESSION['user_id']}";
+}
 $result1 = mysqli_query($conn, $sql1) or die("Query Failed.");
 
 if (mysqli_num_rows($result1) > 0) {
+
     $total_records = mysqli_num_rows($result1);
 
     $total_page = ceil($total_records / $limit);
@@ -92,6 +102,7 @@ if (mysqli_num_rows($result1) > 0) {
     if ($total_page > $page) {
         echo '<li><a href="post.php?page=' . ($page + 1) . '">Next</a></li>';
     }
+
     echo '</ul>';
 }
 ?>

@@ -38,6 +38,7 @@ if (mysqli_num_rows($result) > 0) {
                             <img class="single-feature-image" src="admin/upload/<?php echo $row['post_img']; ?>" alt=""/>
                             <p class="description">
                             <?php echo substr($row['description'], 0, 130) . "..."; ?>
+                            <?php echo $row['description']; ?>
                             </p>
                         </div>
                         <?php
